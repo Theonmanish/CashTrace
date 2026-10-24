@@ -1,0 +1,41 @@
+# Dependencies and virtual environments
+node_modules/
+.venv/
+venv/
+env/
+
+# Build and cache output
+.next/
+out/
+dist/
+build/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.turbo/
+*.tsbuildinfo
+
+# Coverage and logs
+coverage/
+.coverage
+htmlcov/
+*.log
+npm-debug.log*
+
+# Environment files with secrets (keep .env.example)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# OS and local IDE metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
