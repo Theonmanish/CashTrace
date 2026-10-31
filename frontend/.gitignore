@@ -33,6 +33,7 @@ yarn-error.log*
 # env files (keep .env.example committable)
 .env*
 !.env.example
+!.env.local.example
 
 # vercel
 .vercel
