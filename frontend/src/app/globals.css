@@ -868,3 +868,90 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Responsive Data Table (modern-web-guidance: responsive-table) */
+.cashtrace-table-wrapper {
+  overflow: auto;
+  max-inline-size: 100%;
+  max-block-size: min(500px, 80vh);
+  container-type: inline-size;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.cashtrace-ledger-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  --label-2: "Effective Date";
+  --label-3: "Counterparty";
+  --label-4: "Type";
+  --label-5: "Amount";
+  --label-6: "Ledger State";
+  --label-7: "Schedule";
+}
+
+.cashtrace-ledger-table thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+}
+
+.cashtrace-ledger-table tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  background: white;
+}
+
+@container (width < 600px) {
+  .cashtrace-ledger-table,
+  .cashtrace-ledger-table thead,
+  .cashtrace-ledger-table tbody,
+  .cashtrace-ledger-table tr,
+  .cashtrace-ledger-table th,
+  .cashtrace-ledger-table td {
+    display: block;
+  }
+
+  .cashtrace-ledger-table thead {
+    display: none;
+  }
+
+  .cashtrace-ledger-table tr {
+    margin-block-end: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+
+  .cashtrace-ledger-table tbody th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+    background: #f4f7f4;
+  }
+
+  .cashtrace-ledger-table td:nth-child(2)::before {
+    content: var(--label-2) ": ";
+    font-weight: 600;
+  }
+  .cashtrace-ledger-table td:nth-child(3)::before {
+    content: var(--label-3) ": ";
+    font-weight: 600;
+  }
+  .cashtrace-ledger-table td:nth-child(4)::before {
+    content: var(--label-4) ": ";
+    font-weight: 600;
+  }
+  .cashtrace-ledger-table td:nth-child(5)::before {
+    content: var(--label-5) ": ";
+    font-weight: 600;
+  }
+  .cashtrace-ledger-table td:nth-child(6)::before {
+    content: var(--label-6) ": ";
+    font-weight: 600;
+  }
+  .cashtrace-ledger-table td:nth-child(7)::before {
+    content: var(--label-7) ": ";
+    font-weight: 600;
+  }
+}

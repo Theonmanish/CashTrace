@@ -1,20 +1,21 @@
+import { CashTraceDashboard } from '@/components/CashTraceDashboard';
 import { SupabaseStatus } from '@/components/SupabaseStatus';
 
 const capabilities = [
   {
     number: '01',
     title: 'Reconstruct',
-    description: 'See how liquidity moved across every account.',
+    description: 'See how liquidity moved across every settled transaction while isolating unpaid invoices.',
   },
   {
     number: '02',
     title: 'Forecast',
-    description: 'Spot a cash crunch before it reaches your runway.',
+    description: 'Spot 7-day, 14-day, and 30-day cash crunches before they breach your safety reserve.',
   },
   {
     number: '03',
     title: 'Simulate',
-    description: 'Model capital moves before you commit.',
+    description: 'Model earlier collections, split supplier payouts, and reserve adjustments non-mutatingly.',
   },
 ];
 
@@ -30,12 +31,13 @@ export default function Home() {
         </a>
 
         <nav className="header-nav" aria-label="Main navigation">
+          <a href="#workspace">Live Analyzer</a>
           <a href="#how-it-works">How it works</a>
           <a href="#preview">The preview</a>
         </nav>
 
-        <a className="header-cta" href="#preview">
-          Explore the preview <span aria-hidden="true">↗</span>
+        <a className="header-cta" href="#workspace">
+          Open Live Analyzer <span aria-hidden="true">↗</span>
         </a>
       </header>
 
@@ -55,13 +57,13 @@ export default function Home() {
           </h1>
 
           <p className="hero-description">
-            Reconstruct liquidity, see cash crunches coming, and test your next move
-            before it matters.
+            Reconstruct liquidity, detect MSME cash dead zones with transaction-backed root causes,
+            and simulate your next move before it matters.
           </p>
 
           <div className="hero-actions">
-            <a className="button-primary" href="#preview">
-              See the preview <span aria-hidden="true">↗</span>
+            <a className="button-primary" href="#workspace">
+              Launch Live Analyzer <span aria-hidden="true">↓</span>
             </a>
             <a className="button-secondary" href="#how-it-works">
               How it works <span aria-hidden="true">↓</span>
@@ -70,7 +72,7 @@ export default function Home() {
 
           <div className="hero-note">
             <span className="note-line" aria-hidden="true" />
-            <p>Make your next move with the whole picture.</p>
+            <p>Deterministic MSME Dead Zone Detection · Connected to FastAPI Engine.</p>
           </div>
         </div>
 
@@ -84,7 +86,7 @@ export default function Home() {
             <span className="label-icon label-icon-green" aria-hidden="true">↗</span>
             <span>
               <strong>Cash outlook</strong>
-              <small>Updated just now</small>
+              <small>7d / 14d / 30d horizons</small>
             </span>
           </div>
 
@@ -92,24 +94,24 @@ export default function Home() {
             <div className="dashboard-topbar">
               <span className="dashboard-brand">
                 <span className="mini-mark" aria-hidden="true">C</span>
-                CashTrace
+                CashTrace MSME Engine
               </span>
               <span className="dashboard-period">Next 30 days <span aria-hidden="true">⌄</span></span>
             </div>
 
             <div className="dashboard-heading">
               <div>
-                <p className="card-overline">Projected liquidity</p>
-                <p className="balance">$2,840,500</p>
+                <p className="card-overline">Reconstructed Closing Cash</p>
+                <p className="balance">₹1,62,000</p>
               </div>
-              <span className="change-pill"><span aria-hidden="true">↗</span> 12.8%</span>
+              <span className="change-pill"><span aria-hidden="true">✓</span> Invariant OK</span>
             </div>
 
             <div className="chart-wrap" aria-label="Projected liquidity trends upward over 30 days">
               <div className="chart-grid" aria-hidden="true">
-                <span>$3.0m</span>
-                <span>$2.5m</span>
-                <span>$2.0m</span>
+                <span>₹2.5L</span>
+                <span>₹1.5L</span>
+                <span>₹1.0L</span>
               </div>
               <svg
                 className="liquidity-chart"
@@ -137,9 +139,9 @@ export default function Home() {
                 <circle cx="414" cy="26" r="6" fill="#fff" stroke="#27A879" strokeWidth="3" />
               </svg>
               <div className="chart-dates" aria-hidden="true">
-                <span>Today</span>
-                <span>10 days</span>
-                <span>20 days</span>
+                <span>As-Of</span>
+                <span>7 days</span>
+                <span>14 days</span>
                 <span>30 days</span>
               </div>
             </div>
@@ -147,23 +149,26 @@ export default function Home() {
             <div className="dashboard-bottom">
               <div className="account-summary">
                 <span className="account-icon" aria-hidden="true">↗</span>
-                <span><strong>Operating cash</strong><small>Across 4 accounts</small></span>
+                <span><strong>Safety Reserve Threshold</strong><small>Shree Precision Components</small></span>
               </div>
-              <span className="account-value">$1.26m</span>
+              <span className="account-value">₹1,00,000</span>
             </div>
           </div>
 
           <div className="floating-label floating-label-bottom">
             <span className="label-icon label-icon-amber" aria-hidden="true">!</span>
             <span>
-              <strong>Runway in view</strong>
-              <small>Plan ahead with confidence</small>
+              <strong>Dead Zones Detected</strong>
+              <small>Simulate 1-click fixes below</small>
             </span>
           </div>
 
-          <span className="visual-caption">A clearer view of what comes next.</span>
+          <span className="visual-caption">Scroll down to interact with the live engine.</span>
         </div>
       </section>
+
+      {/* Live Backend-Connected Workspace */}
+      <CashTraceDashboard />
 
       <section className="capabilities-section" id="how-it-works" aria-label="What CashTrace helps you do">
         <div className="capabilities-intro">
